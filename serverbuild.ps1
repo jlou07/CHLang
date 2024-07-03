@@ -2,12 +2,14 @@
 # Author: Created by Alexandre Verkinderen, modified by Jean-Loup Orgitello
 # Blogpost: https://mscloud.be/configure-regional-settings-and-windows-locales-on-azure-virtual-machines/
 #
-######################################33
+########################################
+
+#LanguagePack
+Install-Language fr-CH
 
 #variables
 $regionalsettingsURL = "https://raw.githubusercontent.com/jlou07/CHLang/main/CHRegion.xml"
-$RegionalSettings = "C:\CHRegion.xml"
-
+$RegionalSettings = "C:\Region.xml"
 
 #downdload regional settings file
 $webclient = New-Object System.Net.WebClient
