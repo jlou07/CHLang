@@ -4,28 +4,34 @@
 #
 ########################################
 
-#LanguagePack
-Install-Language fr-CH
-
 #variables
 $regionalsettingsURL = "https://raw.githubusercontent.com/jlou07/CHLang/main/CHRegion.xml"
 $RegionalSettings = "C:\Region.xml"
+$Language = "fr-CH"
+$GeoId = "223"
+$TimeZone = "W. Europe Standard Time"
+
+#LanguagePack Suisse
+Install-Language $Language
 
 #downdload regional settings file
 $webclient = New-Object System.Net.WebClient
 $webclient.DownloadFile($regionalsettingsURL,$RegionalSettings)
 
+#LanguagePack USA
+unInstall-Language "en-US"
+Start-sleep -Seconds 120
+
+# Set languages/culture. Not needed perse.
+Set-WinSystemLocale $Language
+Set-WinUserLanguageList -LanguageList $Language -Force
+Set-Culture -CultureInfo $Language
+Set-WinHomeLocation -GeoId $GeoId 
+Set-TimeZone -id $TimeZone
 
 # Set Locale, language etc. 
 & $env:SystemRoot\System32\control.exe "intl.cpl,,/f:`"$RegionalSettings`""
 
-# Set languages/culture. Not needed perse.
-Set-WinSystemLocale fr-CH
-Set-WinUserLanguageList -LanguageList fr-CH -Force
-Set-Culture -CultureInfo fr-CH
-Set-WinHomeLocation -GeoId 223
-Set-TimeZone -Name "W. Europe Standard Time"
-
-# restart virtual machine to apply regional settings to current user. You could also do a logoff and login.
+# restart virtual machine to apply regional settings to current user. 
 Start-sleep -Seconds 40
 Restart-Computer
