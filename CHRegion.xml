@@ -3,23 +3,4 @@
 <gs:UserList>
     <gs:User UserID="Current" CopySettingsToDefaultUserAcct="true" CopySettingsToSystemAcct="true"/> 
 </gs:UserList>
-<!-- user locale -->
-<gs:UserLocale> 
-    <gs:Locale Name="fr-CH" SetAsCurrent="true"/> 
-</gs:UserLocale>
-<!-- system locale 
-<gs:SystemLocale Name="fr-CH"/> -->
-<!-- GeoID -->
-<gs:LocationPreferences> 
-    <gs:GeoID Value="223"/> 
-</gs:LocationPreferences>
-<gs:MUILanguagePreferences>
-	<gs:MUILanguage Value="fr-CH"/>
-	<gs:MUIFallback Value="en-US"/>
-</gs:MUILanguagePreferences>
-<!-- input preferences -->
-<gs:InputPreferences>
-    <!--fr-CH-->
-    <gs:InputLanguageID Action="add" ID="100C:0000100C" Default="true"/> 
-</gs:InputPreferences>
 </gs:GlobalizationServices>
