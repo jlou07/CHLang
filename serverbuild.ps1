@@ -1,7 +1,7 @@
 # Script to define regional settings on Azure Virtual Machines deployed from the market place
 # Author: Created by Alexandre Verkinderen, modified by Jean-Loup Orgitello
 # Blogpost: https://mscloud.be/configure-regional-settings-and-windows-locales-on-azure-virtual-machines/
-#
+# Blogpost: https://jlou.eu/languevm 
 ########################################
 
 #variables
@@ -11,14 +11,14 @@ $Language = "fr-CH"
 $GeoId = "223"
 $TimeZone = "W. Europe Standard Time"
 
-#LanguagePack Suisse
+#LanguagePack installation
 Install-Language $Language
 
 #downdload regional settings file
 $webclient = New-Object System.Net.WebClient
 $webclient.DownloadFile($regionalsettingsURL,$RegionalSettings)
 
-#LanguagePack USA
+#LanguagePack USA désinstallation
 unInstall-Language "en-US"
 Start-sleep -Seconds 120
 
